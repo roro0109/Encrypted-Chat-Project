@@ -18,7 +18,7 @@ const EntranceScreen = props => {
     };
     return <div>
         {!isRegistering && <LoginForm projectID={projectID} startRegistering={startRegisteringHandler}/>}
-        {isRegistering && <RegisterFrom projectID={projectID} userDetails={saveUserDetailHandler} stopRegistering={stopRegisteringHandler}/>}
+        {isRegistering && <RegisterFrom projectID={projectID} onSaveUserDetails={saveUserDetailHandler} stopRegistering={stopRegisteringHandler}/>}
     </div>
 
 }

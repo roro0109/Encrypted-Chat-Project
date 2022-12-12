@@ -49,6 +49,12 @@ const RegisterFrom = (props) => {
         first_name: enteredFirstName,
         last_name: enteredLastName
       };
+      props.onSaveUserDetails(userData);
+      setEnteredUsername('');
+      setEnteredPassword('');
+      setEnteredEmail('');
+      setEnteredFirstName('');
+      setEnteredLastName('');
 
       // const authObject = { 'Project-ID': props.projectID, 'User-Name': username };
 
