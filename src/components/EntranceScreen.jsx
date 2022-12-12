@@ -8,7 +8,6 @@ const EntranceScreen = props => {
     const [isRegistering, setIsRegistering] = useState(false);
     const saveUserDetailHandler = enteredUserDetails => {
         const userDetails = enteredUserDetails
-        setIsRegistering(false);
     };
 
     const startRegisteringHandler = () => {

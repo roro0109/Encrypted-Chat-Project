@@ -8,7 +8,6 @@ const Modal = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isRegistering, setIsRegistering] = useState(false)
 
   const signUpHandler = () => {
     props.startRegistering();

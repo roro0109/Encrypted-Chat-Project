@@ -1,21 +1,22 @@
 import { useState } from "react";
 import axios from 'axios';
 
+
 const make_a_new_user = (username, password, email, firstName, LastName) => {
   var axios = require('axios');
   var data = {
-    "username": {username},
-    "secret": {password},
-    "email": {email},
-    "first_name": {firstName},
-    "last_name": {LastName}
+    username: {username},
+    secret: {password},
+    email: {email},
+    first_name: {firstName},
+    last_name: {LastName}
   };
 
   var config = {
     method: 'post',
     url: 'https://api.chatengine.io/users/',
     headers: {
-      'PRIVATE-KEY': '{{private_key}}'
+      'PRIVATE-KEY': '{3d39fc94-8fdd-4514-8137-15c9c587379b}'
     },
     data : data
   };
@@ -30,18 +31,24 @@ const make_a_new_user = (username, password, email, firstName, LastName) => {
 }
 
 const RegisterFrom = (props) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [enteredUsername, setEnteredUsername] = useState('');
+    const [enteredPassword, setEnteredPassword] = useState('');
     // const [password2, setPassword2] = useState('');
-    const [email, setEmail] = useState('');
-    const [firstName, setfirstName] = useState('');
-    const [LastName, setLastName] = useState('');
+    const [enteredEmail, setEnteredEmail] = useState('');
+    const [enteredFirstName, setEnteredFirstName] = useState('');
+    const [enteredLastName, setEnteredLastName] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = async e => {
       e.preventDefault();
 
-      make_a_new_user(username,password,email,firstName,LastName);
+      const userData = {
+        username: enteredUsername,
+        secret: enteredPassword,
+        email: enteredEmail,
+        first_name: enteredFirstName,
+        last_name: enteredLastName
+      };
 
       // const authObject = { 'Project-ID': props.projectID, 'User-Name': username };
 
@@ -66,10 +73,10 @@ const RegisterFrom = (props) => {
             <h1 className="title">Register Form</h1>
             <h4 style={{justifyContent: 'center', display: 'flex', marginBottom: '8px'}}>All Fields Are Required</h4>
             <form onSubmit={handleSubmit}>
-              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required />
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
+              <input type="text" value={enteredUsername} onChange={(e) => setEnteredUsername(e.target.value)} className="input" placeholder="Username" required />
+              <input type="password" value={enteredPassword} onChange={(e) => setEnteredPassword(e.target.value)} className="input" placeholder="Password" required />
               {/* <input type="password" value={password2} onChange={(e) => setPassword2(e.target.value)} className="input" placeholder="Confirm Password" required /> */}
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" placeholder="Email" />
+              <input type="email" value={enteredEmail} onChange={(e) => setEnteredEmail(e.target.value)} className="input" placeholder="Email" />
               <div align="center">
                 <button type="submit" className="button">
                   <span>Register</span>
