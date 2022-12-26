@@ -28,7 +28,6 @@ const RegisterForm = (props) => {
       axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        // props.onSaveUserDetails(userData);
         setUsername('');
         setPassword('');
         setEmail('');

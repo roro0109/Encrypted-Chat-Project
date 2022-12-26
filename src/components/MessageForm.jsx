@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SendOutlined, PictureOutlined } from '@ant-design/icons';
 import { sendMessage, isTyping } from 'react-chat-engine';
+import { encrypt } from './EncryptorDecryptor';
 
 const MessageForm = (props) => {
   const [value, setValue] = useState('');
@@ -15,10 +16,11 @@ const MessageForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const text = value.trim();
+    const text = encrypt(value.trim(), "Nadav & Rotem"); 
+    console.log("sent message: " + text)
 
     if (text.length > 0) {
-      sendMessage(creds, chatId, { text });
+      sendMessage(creds, chatId, { text }); //send encrypt(text)
     }
 
     setValue('');

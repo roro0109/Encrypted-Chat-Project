@@ -6,9 +6,6 @@ const projectID = '5a16c1de-ea4c-4c12-9b6c-172f530bf6a6';
 
 const EntranceScreen = props => {
     const [isRegistering, setIsRegistering] = useState(false);
-    const saveUserDetailHandler = enteredUserDetails => {
-        const userDetails = enteredUserDetails
-    };
 
     const startRegisteringHandler = () => {
         setIsRegistering(true);
@@ -18,7 +15,7 @@ const EntranceScreen = props => {
     };
     return <div>
         {!isRegistering && <LoginForm projectID={projectID} startRegistering={startRegisteringHandler}/>}
-        {isRegistering && <RegisterFrom projectID={projectID} onSaveUserDetails={saveUserDetailHandler} stopRegistering={stopRegisteringHandler}/>}
+        {isRegistering && <RegisterFrom projectID={projectID} stopRegistering={stopRegisteringHandler}/>}
     </div>
 
 }
