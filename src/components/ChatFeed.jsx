@@ -2,11 +2,26 @@ import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 import MessageForm from './MessageForm';
 import { decrypt } from './EncryptorDecryptor';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
 
   const chat = chats && chats[activeChat];
+
+
+  /*function logout() {
+  // Clear the authentication token
+  localStorage.removeItem('authToken');
+
+  // Redirect the user to the login page
+  window.location.href = '/login';
+} */
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
     <div
@@ -46,6 +61,9 @@ const ChatFeed = (props) => {
 
   return (
     <div className="chat-feed">
+      <div className="logout">
+        <button onClick={handleLogout}>Log the FUCK out</button>
+      </div>
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
