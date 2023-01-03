@@ -33,8 +33,11 @@ const RegisterForm = (props) => {
         setEmail('');
         setFirst('');
         setLast('');
+        props.stopRegistering();
+        alert('Successfully registered, please log in');
         })
       .catch(function (error) {
+        alert('Could not register, username is already taken');
         console.log(error);
       });
 
@@ -54,8 +57,8 @@ const RegisterForm = (props) => {
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password*" required />
               {/* <input type="password" value={password2} onChange={(e) => setPassword2(e.target.value)} className="input" placeholder="Confirm Password" required /> */}
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" placeholder="Email" />
-              <input type="first" value={first} onChange={(e) => setFirst(e.target.value)} className="input" placeholder="First Name" required />
-              <input type="last" value={last} onChange={(e) => setLast(e.target.value)} className="input" placeholder="Last Name" required />
+              <input type="first" value={first} onChange={(e) => setFirst(e.target.value)} className="input" placeholder="First Name" />
+              <input type="last" value={last} onChange={(e) => setLast(e.target.value)} className="input" placeholder="Last Name" />
               <div align="center">
                 <button type="submit" className="button">
                   <span>Register</span>
