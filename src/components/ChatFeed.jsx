@@ -62,7 +62,7 @@ const ChatFeed = (props) => {
   return (
     <div className="chat-feed">
       <div className="logout">
-        <button onClick={handleLogout}>Log the FUCK out</button>
+        <button onClick={handleLogout}>Log Out</button>
       </div>
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
