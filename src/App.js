@@ -18,11 +18,8 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-<<<<<<< HEAD
       renderChatCard={(chat, index) =>  <ChatCard key={`${index}`} chat={chat} />}
-=======
-      renderChatCard={(props, chat) =>   <ChatCard {...props} chat={chat} />}
->>>>>>> 5a7dca84fd69e025d3de5eef05fd50290159da61
+      //renderChatCard={(props, chat) =>   <ChatCard {...props} chat={chat} />}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
 
     />
