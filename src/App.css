@@ -13,7 +13,46 @@
 .ce-chats-container {
   background-color: rgb(240, 240, 240) !important;
 }
+/*Rotems css*/
+/* CARD STYLES */
 
+.chat-card {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  background-color: rgb(240, 240, 240);
+}
+
+.chat-card-container { 
+  padding: '16px';
+  padding-bottom: '12px';
+  cursor: 'pointer';
+}
+
+.title-text { 
+  font-weight: '500';
+  padding-bottom: '4px'; 
+  white-space: 'nowrap'; 
+  overflow: 'hidden';
+}
+
+.message-text {
+  width: '75%';
+  color: 'rgba(153, 153, 153, 1)';
+  font-size: '14px';
+  white-space: 'nowrap'; 
+  overflow: 'hidden';
+  display: 'inline-block';
+}
+
+.active-chat {
+  background-color: '#d9d9d9';
+  border: '0px solid white';
+  border-radius: '12px';
+}
+
+
+/*end of Rotems css*/
 .ce-active-chat-card {
   background-color: #cabcdc !important;
   border: 4px solid #cabcdc !important;

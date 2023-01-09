@@ -4,7 +4,7 @@ import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
 import './App.css';
 import EntranceScreen from './components/EntranceScreen';
-import { ChatCard } from 'react-chat-engine';
+import ChatCard from './components/ChatCard';
 
 const projectID = '5a16c1de-ea4c-4c12-9b6c-172f530bf6a6';
 
@@ -18,7 +18,7 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-      //renderChatCard={(chat, index) =>  <ChatCard key={`${index}`} chat={chat} />}
+      renderChatCard={(chat, index) =>  <ChatCard key={`${index}`} chat={chat} />}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
 
     />
