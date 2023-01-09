@@ -18,39 +18,16 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+<<<<<<< HEAD
       renderChatCard={(chat, index) =>  <ChatCard key={`${index}`} chat={chat} />}
+=======
+      renderChatCard={(props, chat) =>   <ChatCard {...props} chat={chat} />}
+>>>>>>> 5a7dca84fd69e025d3de5eef05fd50290159da61
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
 
     />
   );
 };
 
-const styles={
-  chatContainer: { 
-      padding: '16px', 
-      paddingBottom: '12px',
-      cursor: 'pointer'
-  },
-  titleText: { 
-      fontWeight: '500',
-      paddingBottom: '4px', 
-      whiteSpace: 'nowrap', 
-      overflow: 'hidden' 
-  },
-  messageText: {
-      width: '75%',
-      color: 'rgba(153, 153, 153, 1)', 
-      fontSize: '14px', 
-      whiteSpace: 'nowrap', 
-      overflow: 'hidden',
-      display: 'inline-block'
-  },
-  loadingBar: {
-      borderRadius: '4px',
-      backgroundColor: '#e2e2e2', 
-      height: '12px', 
-      display: 'inline-block'
-  }
-}
 
 export default App;
