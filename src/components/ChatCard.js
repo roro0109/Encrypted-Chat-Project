@@ -1,115 +1,9 @@
-// import MyMessage from './MyMessage';
-// import TheirMessage from './TheirMessage';
-// import MessageForm from './MessageForm';
-// import { decrypt } from './EncryptorDecryptor';
-// import axios from 'axios';
-// import { useLocation } from 'react-router-dom';
-// import React, { useContext } from 'react';
-// import { ChatEngineContext } from 'react-chat-engine';
-
-// const { htmlToText } = require('html-to-text')
-
-
-// const ChatCard = props => {
-
-//     const chat = props.chat;
-//     const index = props.index;
-//     const { conn, activeChat, setActiveChat } = useContext(ChatEngineContext)
-
-//     const extraStyle = activeChat === chat.id ? styles.activeChat : {}
-
-//     let lastMessage = htmlToText(chat.last_message.text, {})
-//     if (!lastMessage) {
-//         lastMessage = chat.last_message.attachments.length > 0 ?
-//         `${chat.last_message.attachments.length} image${chat.last_message.attachments.length > 1 ? 's' : ''}` :
-//         'Say hello!'
-//     }
-
-//     function didReadLastMessage(chat) {
-//         let didReadLastMessage = true
-//         chat.people.map(chat_person => {
-//             if(conn.userName === chat_person.person.username) {
-//                 didReadLastMessage = chat.last_message.id === chat_person.last_read
-//             }
-//         })
-//         return didReadLastMessage
-//     }
-
-//     function daySinceSent(date) {
-//         if (!date) return ''
-//         return getDateTime(date, conn.offset).toString().substr(4, 6)
-//     }
-
-//     if (!chat) return <div />;
-
-//     return (
-//         <div 
-//         style={{ ...styles.chatContainer, ...extraStyle }}
-//         className={`ce-chat-card ${activeChat === chat.id && 'ce-active-chat-card'}`}
-//         onClick={() => setActiveChat(chat.id)}
-//         >
-//             <div 
-//                 style={ styles.titleText }
-//                 className='ce-chat-title-text'>
-//                 {chat?.title}
-
-//             </div>
-//             <div style={{ width: '100%' }} className='ce-chat-subtitle'>
-//                     <div style={styles.messageText} className='ce-chat-subtitle-text ce-chat-subtitle-message'>
-//                         { lastMessage }
-//                     </div>
-
-//                     <div 
-//                         className='ce-chat-subtitle-text ce-chat-subtitle-date'
-//                         style={{ ...styles.messageText, ...{ textAlign: 'right', width: '25%' } }}
-//                     >
-//                         { 'daySinceSent(chat.last_message.created)' }
-//                     </div>
-//                 </div>
-
-//             <div className="chat-subtitle">
-//             </div>
-//         </div>
-//     );
-// };
-
-
-// const styles={
-//     chatContainer: { 
-//         padding: '16px', 
-//         paddingBottom: '12px',
-//         cursor: 'pointer'
-//     },
-//     titleText: { 
-//         fontWeight: '500',
-//         paddingBottom: '4px', 
-//         whiteSpace: 'nowrap', 
-//         overflow: 'hidden' 
-//     },
-//     messageText: {
-//         width: '75%',
-//         color: 'rgba(153, 153, 153, 1)', 
-//         fontSize: '14px', 
-//         whiteSpace: 'nowrap', 
-//         overflow: 'hidden',
-//         display: 'inline-block'
-//     },
-//     activeChat: {
-//         backgroundColor: '#d9d9d9',
-//         border: '0px solid white',
-//         borderRadius: '12px'
-//     },
-// }
-
-// export default ChatCard;
-
 import React, { useContext } from 'react'
-
 import { ChatEngineContext } from 'react-chat-engine'
-
 import _ from 'lodash'
+import Loading from './Loading'
 
-// const { htmlToText } = require('html-to-text')
+//const { htmlToText } = require('html-to-text')
 
 function getDateTime(date, offset) {
     if (!date) return ''
@@ -130,17 +24,23 @@ function getDateTime(date, offset) {
 }
 
 const ChatCard = props => {
-    const { chat } = props
+    const { chat, messages, index } = props
     const { conn, activeChat, setActiveChat } = useContext(ChatEngineContext)
+    
+    // const keys = Object.keys(messages);
+    // msgs = keys.map((key, index) => {
+    //     const lastMessageKey = index === 0 ? null : keys[index - 1];
+    //     const lastMessage = messages[lastMessageKey - 1]
+    // });
 
-    //if (_.isEmpty(chat) || props.loading) return <Loading />
+    if (_.isEmpty(chat) || props.loading) return <Loading />
     if (!conn || conn === null) return <div/>
 
     const extraStyle = activeChat === chat.id ? styles.activeChat : {}
     const title = chat?.title
-    
-    //let lastMessage = htmlToText(chat.last_message.text, {})
-    let lastMessage = "Hi"
+
+    let lastMessage = "Say hello!"
+    // let lastMessage = htmlToText(chat.last_message.text, {})
     // if (!lastMessage) {
     //     lastMessage = chat.last_message.attachments.length > 0 ?
     //     `${chat.last_message.attachments.length} image${chat.last_message.attachments.length > 1 ? 's' : ''}` :

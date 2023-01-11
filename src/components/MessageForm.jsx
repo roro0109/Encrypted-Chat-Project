@@ -9,7 +9,6 @@ const MessageForm = (props) => {
 
   const handleChange = (event) => {
     setValue(event.target.value);
-
     isTyping(props, chatId);
   };
 

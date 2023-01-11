@@ -1,9 +1,6 @@
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 import MessageForm from './MessageForm';
-import { decrypt } from './EncryptorDecryptor';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages, ChatCard } = props;
@@ -33,7 +30,6 @@ const ChatFeed = (props) => {
       const message = messages[key];
       const lastMessageKey = index === 0 ? null : keys[index - 1];
       const isMyMessage = userName === message.sender.username;
-      //const decryptedMsg = decrypt(message, '123123');
       
       return (
         <div key={`msg_${index}`} style={{ width: '100%' }}>

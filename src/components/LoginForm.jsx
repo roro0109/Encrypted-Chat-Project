@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { PropertySafetyFilled } from '@ant-design/icons';
-
-// const projectID = '5a16c1de-ea4c-4c12-9b6c-172f530bf6a6';
 
 const Modal = props => {
   const [username, setUsername] = useState('');

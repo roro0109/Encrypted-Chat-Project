@@ -1,6 +1,4 @@
 import { useState } from "react";
-import axios from 'axios';
-
 
 const RegisterForm = (props) => {
     
@@ -40,7 +38,6 @@ const RegisterForm = (props) => {
         alert('Could not register, username is already taken');
         console.log(error);
       });
-
     }
     
     const logInHandler = () => {
@@ -66,7 +63,7 @@ const RegisterForm = (props) => {
               </div>
             </form>
             <div style={{justifyContent: 'center' ,direction: 'ltr', display: 'flex'}}>
-              <h3 style={{color: 'darkgrey'}}>Already Have An Acount?</h3>
+              <h3 style={{color: 'darkgrey'}}>Already Have An Account?</h3>
               <button onClick={logInHandler} style={{marginLeft: '10px'}}>
                 <span>Log In</span>
               </button>
@@ -74,8 +71,7 @@ const RegisterForm = (props) => {
             <h1>{error}</h1>
           </div>
         </div>
-    
-      );
+    );
 }
 
 export default RegisterForm
