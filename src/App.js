@@ -4,10 +4,9 @@ import ChatFeed from './components/ChatFeed';
 import './App.css';
 import EntranceScreen from './components/EntranceScreen';
 import ChatCard from './components/ChatCard';
-import ChatList from './components/ChatList';
 
 
-const projectID = '5a16c1de-ea4c-4c12-9b6c-172f530bf6a6';
+const projectID = 'a835b881-cb1e-45cf-8585-8fb5502bc8b1';
 
 const App = () => {
   if (!localStorage.getItem('username')) return <EntranceScreen />;
@@ -19,8 +18,7 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-      renderChatCard={(chat, index) =>   <ChatCard key={`${index}`} chat={chat} />}
-      //renderChatList={(chatAppProps) => <ChatList {...chatAppProps} />}
+      //renderChatCard={(chat, index) =>   <ChatCard key={`${index}`} chat={chat} />}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
 
     />

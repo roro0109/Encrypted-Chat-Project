@@ -13,7 +13,7 @@ const RegisterForm = (props) => {
       e.preventDefault();
 
       //header for authentication
-      const authObject = {'Private-Key': '3d39fc94-8fdd-4514-8137-15c9c587379b'}
+      const authObject = {'Private-Key': '6ba9b087-8aa4-4bf9-9117-6dd61a5552c4'}
       var axios = require('axios');
 
       var config = {

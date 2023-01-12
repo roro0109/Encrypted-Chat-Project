@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { ChatEngineContext } from 'react-chat-engine'
 import _ from 'lodash'
-import Loading from './Loading'
 
 //const { htmlToText } = require('html-to-text')
 
@@ -33,7 +32,6 @@ const ChatCard = props => {
     //     const lastMessage = messages[lastMessageKey - 1]
     // });
 
-    if (_.isEmpty(chat) || props.loading) return <Loading />
     if (!conn || conn === null) return <div/>
 
     const extraStyle = activeChat === chat.id ? styles.activeChat : {}
