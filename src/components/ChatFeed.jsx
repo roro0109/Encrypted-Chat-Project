@@ -12,12 +12,6 @@ const ChatFeed = (props) => {
     window.location.reload();
   };
 
-  const getFile = async (url) => {
-    const response = await fetch(url);
-    const data = await response.blob();
-
-    return new File([data], "userPhoto.jpg", { type: 'image.jpeg' })
-  }
 
   const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
     <div
@@ -25,6 +19,7 @@ const ChatFeed = (props) => {
       className="read-receipt"
       style={{
         float: isMyMessage ? 'right' : 'left',
+
         backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
       }}
     />

@@ -1,4 +1,5 @@
 import { decrypt } from "./EncryptorDecryptor";
+import { Avatar } from 'react-chat-engine';
 
 const TheirMessage = ({ lastMessage, message }) => {
   const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username;
@@ -10,6 +11,7 @@ const TheirMessage = ({ lastMessage, message }) => {
           className="message-avatar"
           style={{ backgroundImage: message.sender && `url(${message.sender.avatar})` }}
         />
+        
       )}
       {message.attachments && message.attachments.length > 0
         ? (
