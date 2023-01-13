@@ -43,9 +43,9 @@ const Modal = props => {
         </form>
         <div style={{justifyContent: 'center' ,direction: 'ltr', display: 'flex'}}>
           <h3 style={{color: 'darkgrey'}}>Don't Have A User?</h3>
-          <button onClick={signUpHandler} style={{marginLeft: '10px'}}>
-            <span>Sign Up!</span>
-          </button>
+          <div onClick={signUpHandler} style={{marginLeft: '10px'}}> 
+            Sign Up!
+          </div>
         </div>
         <h1>{error}</h1>
       </div>

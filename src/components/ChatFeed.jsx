@@ -12,12 +12,20 @@ const ChatFeed = (props) => {
     window.location.reload();
   };
 
+  const getFile = async (url) => {
+    const response = await fetch(url);
+    const data = await response.blob();
+
+    return new File([data], "userPhoto.jpg", { type: 'image.jpeg' })
+  }
+
   const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
     <div
       key={`read_${index}`}
       className="read-receipt"
       style={{
         float: isMyMessage ? 'right' : 'left',
+
         backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
       }}
     />
@@ -35,7 +43,7 @@ const ChatFeed = (props) => {
         <div key={`msg_${index}`} style={{ width: '100%' }}>
           <div className="message-block">
             {isMyMessage
-              ? <MyMessage message={message} /> //display decrypt(message)
+              ? <MyMessage message={message} /> 
               : <TheirMessage message={message} lastMessage={messages[lastMessageKey]} />}
           </div>
           <div className="read-receipts" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
@@ -46,12 +54,26 @@ const ChatFeed = (props) => {
     });
   };
 
-  if (!chat) return <div />;
+  if (!chat) return (
+      <div className="nav-bar">
+        <div className="logo-tab">
+                    {userName}
+        </div>
+        <div className='logout-tab'>
+          <div onClick={handleLogout}>Log Out</div>
+        </div>
+      </div>
+  );
 
   return (
     <div className="chat-feed">
-      <div className="logout">
-        <button onClick={handleLogout}>Log Out</button>
+      <div className="nav-bar">
+      <div className="logo-tab">
+                    {userName}
+        </div>
+        <div className='logout-tab'>
+          <div onClick={handleLogout}>Log Out</div>
+        </div> 
       </div>
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>

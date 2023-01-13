@@ -8,6 +8,7 @@ const RegisterForm = (props) => {
   const [last, setLast] = useState('');
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
+  const [avatar, setAvatar] = useState('');
 
     const handleSubmit = async e => {
       e.preventDefault();
@@ -31,6 +32,7 @@ const RegisterForm = (props) => {
         setEmail('');
         setFirst('');
         setLast('');
+        
         props.stopRegistering();
         alert('Successfully registered, please log in');
         })
@@ -60,13 +62,14 @@ const RegisterForm = (props) => {
                 <button type="submit" className="button">
                   <span>Register</span>
                 </button>
+                
               </div>
             </form>
             <div style={{justifyContent: 'center' ,direction: 'ltr', display: 'flex'}}>
               <h3 style={{color: 'darkgrey'}}>Already Have An Account?</h3>
-              <button onClick={logInHandler} style={{marginLeft: '10px'}}>
-                <span>Log In</span>
-              </button>
+              <div onClick={logInHandler} style={{marginLeft: '10px'}}> 
+                  Log in!
+                </div>
             </div>
             <h1>{error}</h1>
           </div>
