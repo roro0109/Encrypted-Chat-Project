@@ -3,7 +3,7 @@ import { ChatEngine } from 'react-chat-engine';
 import ChatFeed from './components/ChatFeed';
 import './App.css';
 import EntranceScreen from './components/EntranceScreen';
-import ChatCard from './components/ChatCard';
+//import ChatCard from './components/ChatCard';
 
 
 const projectID = 'a835b881-cb1e-45cf-8585-8fb5502bc8b1';
