@@ -159,14 +159,15 @@
 }
 
 .message-username {
-  font-size: 8px;
-  border-radius: 6px;
+  font-size: 15px;
+  padding: 4px;
+  border-radius: 10px;
   max-width: 60%;
 }
 
 .message {
   padding: 12px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 6px;
   max-width: 60%;
 }
