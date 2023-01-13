@@ -66,10 +66,10 @@ const RegisterForm = (props) => {
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" placeholder="Email" />
               <input type="first" value={first} onChange={(e) => setFirst(e.target.value)} className="input" placeholder="First Name" />
               <input type="last" value={last} onChange={(e) => setLast(e.target.value)} className="input" placeholder="Last Name" />
-              <div style={{justifyContent: 'center' ,direction: 'ltr', display: 'flex'}}>
+              {/* <div style={{justifyContent: 'center' ,direction: 'ltr', display: 'flex'}}>
                 <h3 style={{color: 'white'}}>Add an Avatar:</h3>
               </div>
-              <input type="file" id="img" name="img" accept="image/*" value={avatar} onChange={(e) => setAvatar(e.target.value)} className="file-button"/>
+              <input type="file" id="img" name="img" accept="image/*" value={avatar} onChange={(e) => setAvatar(e.target.value)} className="file-button"/> */}
                 <div align="center">
                 <button type="submit" className="button">
                   <span>Register</span>
