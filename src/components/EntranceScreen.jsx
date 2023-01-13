@@ -2,7 +2,7 @@ import LoginForm from './LoginForm';
 import RegisterFrom from './RegisterForm';
 import { useState } from 'react';
 
-const projectID = process.env.REACT_APP_CHAT_ENGINE_ID;
+const projectID = 'a835b881-cb1e-45cf-8585-8fb5502bc8b1';
 
 const EntranceScreen = props => {
     const [isRegistering, setIsRegistering] = useState(false);

@@ -6,7 +6,7 @@ import EntranceScreen from './components/EntranceScreen';
 //import ChatCard from './components/ChatCard';
 
 
-const projectID = process.env.REACT_APP_CHAT_ENGINE_ID;
+const projectID = 'a835b881-cb1e-45cf-8585-8fb5502bc8b1';
 
 const App = () => {
   if (!localStorage.getItem('username')) return <EntranceScreen />;
