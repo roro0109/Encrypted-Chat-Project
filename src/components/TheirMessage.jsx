@@ -1,5 +1,4 @@
 import { decrypt } from "./EncryptorDecryptor";
-import { Avatar } from 'react-chat-engine';
 
 const TheirMessage = ({ lastMessage, message }) => {
   const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username;
